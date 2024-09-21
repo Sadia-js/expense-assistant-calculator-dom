@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Assistant DOM</title>
+    <!-- Tailwind and daisy ui link -->
+     
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <main class="w-11/12 mx-auto flex justify-center min-h-screen items-center">
+    <section class="card bg-base-100 md:w-3/6 shrink-0 shadow-2xl mt-6">
+        <h1 class="text-lg md:text-2xl font-bold text-blue-600 text-center"> Programmer Expenses Assistant</h1>
+        <!-- Assistant form -->
+        <div class="flex flex-row justify-center gap-4 mt-10">
+            <button onclick="assistantBtn()" class="btn md:w-40">Assistant</button>
+            <button onclick="historyBtn()" class="btn md:w-40">History</button>
+        </div>
+        <div id="counter-form">
+            <form class="card-body">
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Enter income</span>
+                  </label>
+                  <input id="current-income" type="number" placeholder="Income" class="input input-bordered" required />
+                </div>
+                <div class="flex flex-col md:flex-row justify-between">
+                  <label class="label">
+                      <span class="label-text mr-3">Software</span>
+                      <input id="software" type="number" placeholder="Software" class="input input-bordered" required />
+                  </label>
+                  <label class="label">
+                      <span class="label-text mr-3">Courses</span>
+                      <input id="courses" type="number" placeholder="course" class="input input-bordered" required />
+                    </label>
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Internet</span>
+                  </label>
+                  <input id="internet" type="number" placeholder="Internet cost" class="input input-bordered" required />
+                </div>
+                <div class="form-control mt-6">
+                  <button id="calculations-counter" class="btn btn-primary">Calculate</button>
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Savings (%)</span>
+                  </label>
+                  <input id="keep-savings" type="number" placeholder="Savings %" class="input input-bordered" required />
+                </div>
+                <div class="form-control mt-6">
+                  <button id="calculate-savings" class="btn btn-primary">Calculate Savings</button>
+                </div>
+              </form>
+        </div>
+        <!-- Result summary -->
+        <div id="results-here" class="hidden m-8 border-2 rounded-lg p-4">
+            <div class="font-bold text-2xl text-blue-600 text-center">
+                <h1>Results Summary</h1>
+            </div>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="shadow-sm p-3 border-l-2 border-sky-400 rounded-md">
+                    <h3 class="font-semibold">Total Expenses</h3>
+                    <p>$<span id="total-expense">00</span></p>
+                </div>
+                <div class="shadow-sm p-3 border-l-2 border-sky-300 rounded-md">
+                    <h3 class="font-semibold">Balance</h3>
+                    <p>$<span id="balance">00</span></p>
+                </div>
+                <div class="shadow-sm p-3 border-l-2 border-sky-300 rounded-md">
+                    <h3 class="font-semibold">Savings Amount</h3>
+                    <p>$<span id="savings-amount">00</span></p>
+                </div>
+                <div class="shadow-sm p-3 border-l-2 border-sky-300 rounded-md">
+                    <h3 class="font-semibold">Remaining Balance</h3>
+                    <p>$<span id="remaining-amount">00</span></p>
+                </div>
+            </div>
+        </div>
+        <!-- Expense History -->
+         <div id="expense-history" class="hidden bg-sky-100 border-2 shadow-md border-sky-200 m-8 rounded-lg p-4">
+            <div class="flex justify-center items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-blue-900"></div>
+                <h1 class="text-2xl font-bold text-blue-700">Expense History</h1>
+            </div>
+            <div id="show-all-expense">
+                <!-- <li>Serial :</li>
+                <li>Income :</li>
+                <li> Expense :</li>
+                <li>Balance :</li> -->
+            </div>
+         </div>
+    </section>
+    </main>
+    
+    <!-- scripts -->
+     <script src="./js/utilities.js"></script>
+     <script src="./js/calculate.js"></script>
+</body>
+</html>
